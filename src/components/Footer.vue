@@ -219,17 +219,48 @@ export default {};
   background-color: #1e212c;
   color: #a5a6ab;
   padding-top: 80px;
+  @include breakpoint(md) {
+    padding-top: 40px;
+  }
+  @include breakpoint(xs) {
+    padding-top: 20px;
+  }
   &-wrapper {
     display: flex;
     justify-content: center;
-    gap: 80px;
+    gap: 56px;
     padding-bottom: 40px;
+    @include breakpoint(lg) {
+      gap: 20px;
+    }
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+      justify-items: center;
+    }
+    @include breakpoint(sm) {
+      grid-template-columns: 1fr 1fr;
+      justify-items: start;
+    }
+    @include breakpoint(xs) {
+      gap: 20px;
+    }
+    @media screen and (max-width: 500px) {
+      display: flex;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
   }
   &-about {
     display: flex;
     flex-direction: column;
     gap: 30px;
     max-width: 279px;
+    @media screen and (max-width: 500px) {
+      gap: 10px;
+    }
     &__text {
       font-size: 12px;
       line-height: 18px;
@@ -238,7 +269,11 @@ export default {};
   &-links {
     display: flex;
     gap: 20px;
+    @media screen and (max-width: 500px) {
+      justify-content: center;
+    }
     &__item {
+      cursor: pointer;
       path {
         transition: 0.3s;
       }
@@ -253,6 +288,14 @@ export default {};
     display: flex;
     flex-direction: column;
     gap: 10px;
+    white-space: nowrap;
+
+    @include breakpoint(sm) {
+      gap: 5px;
+    }
+    @include breakpoint(xs) {
+      gap: 0px;
+    }
     &__title {
       color: #fff;
       line-height: 24px;
@@ -261,7 +304,12 @@ export default {};
     }
     &__link {
       line-height: 25px;
+      cursor: pointer;
       transition: 0.3s;
+
+      @include breakpoint(xs) {
+        font-size: 14px;
+      }
       &:hover {
         color: #fff;
       }
@@ -336,6 +384,16 @@ export default {};
     justify-content: space-between;
     padding: 20px 130px;
     background-color: #292c37;
+    @include breakpoint(sm) {
+      padding: 20px 50px;
+    }
+    @include breakpoint(xs) {
+      padding: 5px 30px;
+    }
+    @media screen and (max-width: 530px) {
+      flex-direction: column;
+      align-items: start;
+    }
     &__text {
       display: flex;
       gap: 8px;
@@ -343,7 +401,6 @@ export default {};
       p {
         font-size: 12px;
         line-height: 18px;
-        width: 170px;
       }
     }
     button {
@@ -355,7 +412,7 @@ export default {};
       font-weight: 700;
       cursor: pointer;
       transition: 0.3s;
-      &:hover{
+      &:hover {
         color: #fff;
       }
     }

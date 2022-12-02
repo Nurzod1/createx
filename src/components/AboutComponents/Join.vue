@@ -54,17 +54,46 @@ export default {
 <style lang="scss" scoped>
 .join {
   margin: 100px 0;
+
+  @include breakpoint(lg) {
+    margin: 70px 0;
+  }
+  @include breakpoint(md) {
+    margin: 50px 0;
+  }
+  @include breakpoint(sm) {
+    margin: 30px 0;
+  }
   &-wrapper {
     background-color: #fedcd2;
     padding: 50px 65px;
+    @include breakpoint(lg) {
+      padding: 25px 35px;
+    }
   }
   &-intro {
     display: flex;
     justify-content: space-between;
+
+    @include breakpoint(xs) {
+      flex-direction: column;
+      gap: 10px;
+    }
     &__title {
       font-size: 32px;
       line-height: 41px;
       font-weight: 900;
+      @include breakpoint(md) {
+        font-size: 28px;
+        line-height: 36px;
+      }
+      @include breakpoint(md) {
+        text-align: center;
+      }
+      @media screen and (max-width: 430px) {
+        font-size: 22px;
+        line-height: 26px;
+      }
     }
   }
   &-time {
@@ -72,6 +101,15 @@ export default {
       display: flex;
       gap: 24px;
       align-items: center;
+      @include breakpoint(md) {
+        gap: 15px;
+      }
+      @include breakpoint(xs) {
+        justify-content: flex-end;
+      }
+      @media screen and (max-width: 470px) {
+        justify-content: center;
+      }
     }
   }
   &-day {
@@ -83,6 +121,10 @@ export default {
       font-size: 20px;
       line-height: 26px;
       font-weight: 700;
+      @include breakpoint(md) {
+        font-size: 18px;
+        line-height: 22px;
+      }
     }
     &__text {
       font-size: 12px;
@@ -98,6 +140,10 @@ export default {
       font-size: 20px;
       line-height: 26px;
       font-weight: 700;
+      @include breakpoint(md) {
+        font-size: 18px;
+        line-height: 22px;
+      }
     }
     &__text {
       font-size: 12px;
@@ -113,6 +159,10 @@ export default {
       font-size: 20px;
       line-height: 26px;
       font-weight: 700;
+      @include breakpoint(md) {
+        font-size: 18px;
+        line-height: 22px;
+      }
     }
     &__text {
       font-size: 12px;
@@ -128,6 +178,10 @@ export default {
       font-size: 20px;
       line-height: 26px;
       font-weight: 700;
+      @include breakpoint(md) {
+        font-size: 18px;
+        line-height: 22px;
+      }
     }
     &__text {
       font-size: 12px;
@@ -139,26 +193,57 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: 20px;
+    }
+    @include breakpoint(xs) {
+      display: flex;
+      flex-direction: column;
+      gap: 0px;
+    }
     &__wrapper {
       display: flex;
       flex-direction: column;
       gap: 8px;
       padding-bottom: 20px;
+      width: 240px;
+      @include breakpoint(sm) {
+        width: 200px;
+        padding: 9px 10px;
+      }
+      @include breakpoint(xs) {
+        width: 100%;
+        padding: 5px 5px;
+      }
       input {
         background-color: #fff;
         border: 1px solid #d7dadd;
         padding: 10px 15px;
-        width: 291px;
         font-size: 14px;
         line-height: 21px;
         color: #9a9ca5;
         outline: none;
         border-radius: 4px;
+
+        @include breakpoint(xs){
+          padding: 5px 10px;
+        }
       }
     }
-    &__title{
+    &__title {
       font-size: 14px;
       line-height: 21px;
+      @include breakpoint(sm){
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
   }
 }

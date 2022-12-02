@@ -127,25 +127,81 @@ export default {
 <style lang="scss" scoped>
 .benifits {
   margin: 80px 0;
+  @include breakpoint(sm) {
+    margin: 50px 0;
+  }
+  @include breakpoint(xs) {
+    margin: 30px 0;
+  }
+  @media screen and (max-width: 400px) {
+    margin: 15px 0;
+  }
   &-intro {
     text-align: center;
     &__subtitle {
       line-height: 24px;
       font-weight: 700;
       letter-spacing: 1px;
+      @include breakpoint(sm) {
+        font-size: 14px;
+        line-height: 22px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 600;
+      }
     }
     &__title {
       font-size: 46px;
       line-height: 60px;
       font-weight: 900;
+      @include breakpoint(sm) {
+        font-size: 36px;
+        line-height: 50px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 28px;
+        line-height: 32px;
+        font-weight: 800;
+      }
+    }
+  }
+  &-img {
+    display: flex;
+    padding: 0 15px;
+    @include breakpoint(lg) {
+      width: 400px;
+    }
+    @include breakpoint(xs) {
+      width: 300px;
+    }
+    img {
+      width: 100%;
+      height: 100%;
     }
   }
   &-buttons {
     display: flex;
     justify-content: space-evenly;
     padding: 40px 0;
+    @include breakpoint(md) {
+      justify-content: space-between;
+    }
+    @include breakpoint(sm) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+    @media screen and (max-width: 400px) {
+      padding: 20px 0;
+    }
+    @media screen and (max-width: 400px) {
+      gap: 5px;
+    }
     &__btn {
       display: flex;
+      justify-content: center;
       align-items: center;
       gap: 10px;
       line-height: 25px;
@@ -156,6 +212,16 @@ export default {
       transition: 0.3s;
       cursor: pointer;
       color: #9a9ca5;
+      @include breakpoint(md) {
+        font-size: 14px;
+        padding: 5px 10px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+        font-weight: 500;
+      }
+
       &:hover {
         color: #ff3f3a;
         border: 2px solid #ff3f3a;
@@ -169,19 +235,38 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 24px;
+    @media screen and (max-width: 400px) {
+      gap: 15px;
+    }
     &__wrapper {
       display: flex;
       align-items: center;
       justify-content: space-evenly;
+      @include breakpoint(xs) {
+        flex-direction: column;
+        gap: 20px;
+      }
     }
     &__title {
       font-size: 32px;
       line-height: 40px;
       font-weight: 900;
+      @include breakpoint(sm) {
+        font-size: 24px;
+        line-height: 30px;
+      }
     }
     &__text {
       line-height: 25px;
       max-width: 495px;
+      @include breakpoint(sm) {
+        font-size: 14px;
+        line-height: 20px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 18px;
+      }
     }
   }
 }

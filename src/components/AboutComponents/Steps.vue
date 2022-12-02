@@ -60,11 +60,10 @@
               </svg>
             </div>
             <div class="step-about">
-              <div class="step-about__title">
-                Passing test
-              </div>
+              <div class="step-about__title">Passing test</div>
               <div class="step-about__text">
-                Anim reprehenderit sint voluptate exercitation adipisicing laborum adipisicing. Minim ad tempor est ea.
+                Anim reprehenderit sint voluptate exercitation adipisicing
+                laborum adipisicing. Minim ad tempor est ea.
               </div>
             </div>
           </div>
@@ -90,11 +89,10 @@
               </svg>
             </div>
             <div class="step-about">
-              <div class="step-about__title">
-                Curator’s feedback
-              </div>
+              <div class="step-about__title">Curator’s feedback</div>
               <div class="step-about__text">
-                Adipisicing esse aliqua aliquip qui amet. Aute eiusmod dolore dolore et ad et veniam ad deserunt.
+                Adipisicing esse aliqua aliquip qui amet. Aute eiusmod dolore
+                dolore et ad et veniam ad deserunt.
               </div>
             </div>
           </div>
@@ -120,11 +118,10 @@
               </svg>
             </div>
             <div class="step-about">
-              <div class="step-about__title">
-                Corrections if needed
-              </div>
+              <div class="step-about__title">Corrections if needed</div>
               <div class="step-about__text">
-                Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit voluptate ullamco proident ea ad.
+                Sit veniam aute dolore adipisicing nulla sit culpa. Minim mollit
+                voluptate ullamco proident ea ad.
               </div>
             </div>
           </div>
@@ -141,74 +138,163 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.steps{
+.steps {
   padding: 40px 0;
-  &-wrapper{
+  &-wrapper {
     display: flex;
     flex-direction: column;
     gap: 60px;
     align-items: center;
+
+    @include breakpoint(sm){
+      gap: 30px;
+    }
+    @include breakpoint(xs){
+      gap: 15px;
+    }
   }
-  &-intro{
+  &-intro {
     display: flex;
     flex-direction: column;
     gap: 8px;
     text-align: center;
-    &__subtitle{
+    &__subtitle {
       line-height: 24px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+      @include breakpoint(md) {
+        font-size: 14px;
+        line-height: 16px;
+      }
+      @include breakpoint(sm) {
+        font-size: 12px;
+        line-height: 16px;
+      }
+      @include breakpoint(xs) {
+        font-size: 10px;
+        line-height: 12px;
+      }
     }
-    &__title{
+    &__title {
       font-size: 46px;
       line-height: 60px;
       font-weight: 900;
+      @include breakpoint(md) {
+        font-size: 42px;
+        line-height: 54px;
+      }
+      @include breakpoint(sm) {
+        font-size: 36px;
+        line-height: 38px;
+      }
+      @include breakpoint(xs) {
+        font-size: 28px;
+        line-height: 34px;
+      }
+      @media screen and (max-width:400px) {
+        font-size: 22px;
+        line-height: 26px;
+      }
     }
   }
-  .step{
+  .step {
     display: flex;
-    gap: 30px;
-    &-wrapper{
+    justify-content: space-between;
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 30px;
+    }
+    @include breakpoint(md) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    @include breakpoint(md) {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    &-wrapper {
       display: flex;
       flex-direction: column;
       gap: 16px;
       max-width: 285px;
+      @include breakpoint(sm) {
+        gap: 0px;
+      }
+      @media screen and (max-width: 400px) {
+        gap: 10px;
+      }
     }
-    &-progress{
+    &-progress {
       display: flex;
-      gap: 22px;
       align-items: center;
-      &__num{
+      
+      @media screen and (max-width: 400px) {
+        flex-direction: column;
+        align-items: center;
+      }
+      &__num {
         font-size: 46px;
         line-height: 56px;
         font-weight: 900;
-        color: #D7DADD;
+        color: #d7dadd;
         border: 15px solid transparent;
         border-radius: 50%;
         padding: 10px;
         transition: 0.3s;
         cursor: pointer;
-        &:hover{
-          border: 15px solid #FFF4F3;
+
+        @include breakpoint(md) {
+          font-size: 38px;
+          line-height: 46px;
+        }
+        @include breakpoint(sm) {
+          font-size: 28px;
+          line-height: 34px;
+        }
+        &:hover {
+          border: 15px solid #fff4f3;
           border-radius: 50%;
           background: #ffdedc;
           color: #ff3f3a;
         }
       }
     }
-    &-about{
+    &-about {
       display: flex;
       flex-direction: column;
       gap: 8px;
-      &__title{
+      padding-left: 15px;
+      @media screen and (max-width: 400px) {
+        text-align: center;
+      }
+      &__title {
         font-size: 20px;
         line-height: 30px;
         font-weight: 700;
+        @include breakpoint(md) {
+          font-size: 18px;
+          line-height: 24px;
+        }
+        @include breakpoint(xs) {
+          font-size: 16px;
+          line-height: 20px;
+        }
       }
-      &__text{
+      &__text {
         line-height: 25px;
-        color: #787A80;
+        color: #787a80;
+        @include breakpoint(md) {
+          font-size: 14px;
+          line-height: 18px;
+        }
+        @include breakpoint(xs) {
+          font-size: 12px;
+          line-height: 16px;
+        }
       }
     }
   }

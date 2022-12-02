@@ -35,7 +35,7 @@ export default {
         {
           imgUrl: require("@/assets/img/person1.png"),
           category: "Management",
-          text: "Prduct Management Fundamentals",
+          text: "Product Management Fundamentals",
           price: "$480",
           autor: "by Marvin McKinney",
         },
@@ -75,10 +75,14 @@ export default {
 
 <style lang="scss" scoped>
 .feature {
+  padding: 20px 0;
   &-wrapper {
     display: flex;
     flex-direction: column;
     gap: 80px;
+    @include breakpoint(sm){
+      gap: 40px;
+    }
   }
   &-intro {
     display: flex;
@@ -88,25 +92,68 @@ export default {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      @include breakpoint(md){
+        gap: 4px;
+      }
+      @include breakpoint(xs){
+        gap: 0;
+      }
     }
     &__subtitle {
       line-height: 150%;
       font-weight: 700;
       letter-spacing: 1px;
       color: #1e212c;
+      @include breakpoint(md) {
+        font-size: 14px;
+        line-height: 24px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+      @include breakpoint(md) {
+        font-size: 12px;
+        line-height: 18px;
+        font-weight: 600;
+        letter-spacing: normal;
+      }
+      @media screen and (max-width: 400px){
+        font-size: 10px;
+        line-height: 14px;
+      }
     }
     &__title {
       font-size: 46px;
       line-height: 130%;
       font-weight: 900;
       color: #1e212c;
+      @include breakpoint(md) {
+        font-size: 36px;
+        line-height: 46px;
+        font-weight: 700;
+      }
+      @include breakpoint(xs) {
+        font-size: 24px;
+        line-height: 36px;
+        font-weight: 600;
+      }
+      @media screen and (max-width: 400px){
+        font-size: 18px;
+        line-height: 24px;
+        font-weight: 600;
+      }
     }
   }
-  &-cards{
+  &-cards {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-self: center;
     gap: 30px;
+    @include breakpoint(lg) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
   }
 }
 </style>

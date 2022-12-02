@@ -1,34 +1,24 @@
 <template>
-  <div class="card">
-    <div class="card-btn">
-      <svg
-        width="20"
-        height="20"
-        viewBox="0 0 20 20"
-        fill="none"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          fill-rule="evenodd"
-          clip-rule="evenodd"
-          d="M0.833252 9.99935C0.833252 9.53911 1.20635 9.16602 1.66659 9.16602V9.99935V10.8327C1.20635 10.8327 0.833252 10.4596 0.833252 9.99935ZM18.3333 9.99935L18.3332 10.8327H1.66659V9.99935V9.16602H18.3327L18.3333 9.99935ZM18.3333 9.99935L18.3332 10.8327C18.7934 10.8327 19.1666 10.4596 19.1666 9.99935C19.1666 9.53911 18.793 9.16602 18.3327 9.16602L18.3333 9.99935Z"
-          fill="#FF3F3A"
-        />
-      </svg>
-    </div>
+  <div :class="['card', { open: active }]">
     <div class="card-intro__wrapper">
-      <div class="card-intro">
-        <div class="card-intro__lesson">Lesson 1.</div>
-        <div class="card-intro__title">
-          Aliquet lectus urna viverra in odio.
+      <div class="card-about">
+        <div class="card-intro" @click="$emit('active:update')">
+          <div class="card-btn">
+            <span></span>
+            <span></span>
+          </div>
+          <div class="card-intro__lesson">Lesson 1.</div>
+          <div class="card-intro__title">
+            Aliquet lectus urna viverra in odio.
+          </div>
         </div>
-      </div>
-      <div class="card-intro__text">
-        Nulla amet, sagittis potenti rhoncus sit. Elit lectus nec pulvinar
-        aliquet donec enim, ornare. Lacus facilisi curabitur turpis varius
-        mauris. Nisi, tempus risus, odio mi suscipit sed. Curabitur faucibus
-        porttitor quis sem lacus, arcu feugiat facilisis. Commodo nunc orci
-        vitae accumsan id.
+        <div class="card-content">
+          Nulla amet, sagittis potenti rhoncus sit. Elit lectus nec pulvinar
+          aliquet donec enim, ornare. Lacus facilisi curabitur turpis varius
+          mauris. Nisi, tempus risus, odio mi suscipit sed. Curabitur faucibus
+          porttitor quis sem lacus, arcu feugiat facilisis. Commodo nunc orci
+          vitae accumsan id.
+        </div>
       </div>
     </div>
   </div>
@@ -37,39 +27,148 @@
 <script>
 export default {
   name: "LessonCard",
+  props: {
+    active: {
+      type: Boolean,
+      required: true,
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.card{
+.card {
   display: flex;
   gap: 20px;
   max-width: 600px;
-  &-btn{
-    padding-top: 5px;
-    height: fit-content;
+  margin-top: 20px;
+  @include breakpoint(lg) {
+    max-width: 540px;
   }
-  &-intro{
-    display: flex;
-    gap: 10px;
-    &__wrapper{
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+  &.open {
+    .card-btn span {
+      transform: translateY(-50%);
     }
-    &__lesson{
+
+    .card-content {
+      max-height: 150px;
+    }
+  }
+
+  &-btn {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+
+    span {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      border-radius: 33px;
+      background: #ff3f3a;
+      transform: translateY(-50%);
+      transition: 0.3s;
+
+      &:first-child {
+        transform: translateY(-50%) rotate(90deg);
+      }
+
+      &:last-child {
+        height: 1.5px;
+      }
+    }
+  }
+  &-intro {
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 10px;
+    cursor: pointer;
+
+    @include breakpoint(lg) {
+      padding: 6px 10px;
+    }
+    @include breakpoint(sm) {
+      justify-content: center;
+    }
+    @media screen and (max-width: 400px) {
+      padding: 3px 5px;
+    }
+    &__wrapper {
+      display: flex;
+      gap: 20px;
+      border: 1px solid transparent;
+      border-radius: 12px;
+      transition: 0.3s;
+
+      &:hover {
+        border: 1px solid #c1c1c1;
+      }
+    }
+
+    &__lesson {
       font-size: 20px;
       line-height: 30px;
-      color: #FF3F3A;
+      color: #ff3f3a;
+      @include breakpoint(lg) {
+        font-size: 18px;
+        line-height: 25px;
+      }
+      @include breakpoint(md) {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 12px;
+        line-height: 14px;
+      }
     }
-    &__title{
+
+    &__title {
       font-size: 20px;
       line-height: 30px;
       font-weight: 700;
+      @include breakpoint(lg) {
+        font-size: 18px;
+        line-height: 25px;
+      }
+      @include breakpoint(md) {
+        font-size: 16px;
+        line-height: 20px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @media screen and (max-width: 350px) {
+        font-size: 12px;
+        line-height: 14px;
+      }
     }
-    &__text{
-      line-height: 25px;
-      color: #424551;
+  }
+
+  &-content {
+    max-height: 0px;
+    margin-left: 32px;
+    color: #424551;
+    line-height: 25px;
+    overflow: hidden;
+    transition: 0.3s;
+    @include breakpoint(lg) {
+      font-size: 14px;
+      line-height: 18px;
+    }
+    @media screen and (max-width: 400px) {
+      font-size: 12px;
+      line-height: 14px;
     }
   }
 }

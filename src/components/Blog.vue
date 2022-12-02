@@ -7,10 +7,10 @@
             <div class="blog-intro__subtitle">OUR BLOG</div>
             <div class="blog-intro__title">Latest posts</div>
           </div>
-          <Button title="Go to blog"/>
+          <Button title="Go to blog" />
         </div>
         <div class="blogcard-wrapper">
-        <BlogCard v-for="item in items" :key="item.imgUrl" :post="item"/>
+          <BlogCard v-for="item in items" :key="item.imgUrl" :post="item" />
         </div>
       </div>
     </div>
@@ -18,8 +18,8 @@
 </template>
 
 <script>
-import BlogCard from './BlogCard.vue'
-import Button from './Button.vue'
+import BlogCard from "./BlogCard.vue";
+import Button from "./Button.vue";
 export default {
   components: { Button, BlogCard },
   data() {
@@ -43,9 +43,10 @@ export default {
           category: "Management",
           data: "August 25, 2020",
           time: "45 min",
-          title: "What to do and who to talk to if you want to get feedback on the product",
+          title:
+            "What to do and who to talk to if you want to get feedback on the product",
           text: "Neque a, senectus consectetur odio in aliquet nec eu. Ultricies ac nibh urna urna sagittis faucibus...",
-          btn: "Watch"
+          btn: "Watch",
         },
         {
           imgUrl: require("@/assets/img/item3.png"),
@@ -53,47 +54,88 @@ export default {
           type: "Article",
           category: "Design",
           data: "August 8, 2020",
-          title: "Should you choose a creative profession if you are attracted to creativity?",
+          title:
+            "Should you choose a creative profession if you are attracted to creativity?",
           text: "Curabitur nisl tincidunt eros venenatis vestibulum ac placerat. Tortor, viverra sed vulputate ultrices...",
-          btn: "Read"
+          btn: "Read",
         },
       ],
     };
   },
-}
+};
 </script>
 
 <style lang="scss" scoped>
-.blog{
+.blog {
   margin: 80px 0;
-  &-wrapper{
+  &-wrapper {
     display: flex;
     flex-direction: column;
     gap: 60px;
+    @include breakpoint(sm){
+      gap: 40px;
+    }
+    @include breakpoint(xs){
+      gap: 20px;
+    }
   }
-  &-intro{
+  &-intro {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    &__text{
+    &__text {
       display: flex;
       flex-direction: column;
       gap: 8px;
+      @include breakpoint(md) {
+        gap: 0px;
+      }
     }
-    &__subtitle{
+    &__subtitle {
       line-height: 24px;
       font-weight: 700;
       letter-spacing: 1px;
+      @include breakpoint(md) {
+        font-size: 14px;
+      }
+      @include breakpoint(md) {
+        font-size: 12px;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 10px;
+      }
     }
-    &__title{
+    &__title {
       font-size: 46px;
       line-height: 60px;
       font-weight: 900;
+      @include breakpoint(md) {
+        font-size: 38px;
+        line-height: 45px;
+      }
+      @include breakpoint(sm) {
+        font-size: 32px;
+        line-height: 40px;
+      }
+      @media screen and (max-width: 450px) {
+        font-size: 26px;
+        line-height: 32px;
+      }
     }
   }
-  .blogcard-wrapper{
-    display: flex;
-    justify-content: space-evenly;
+  .blogcard-wrapper {
+    display: grid;
+    grid-template-columns:  1fr 1fr 1fr;
+    gap: 20px;
+    @include breakpoint(lg) {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      justify-items: center;
+      gap: 20px;
+    }
+    @include breakpoint(sm) {
+      grid-template-columns: 1fr;
+    }
   }
 }
 </style>

@@ -317,15 +317,36 @@ export default {
 
 <style lang="scss" scoped>
 .tutors {
+  background: #f4f5f7;
   padding: 160px 0 80px 0;
+  @include breakpoint(md) {
+    padding: 120px 0 60px 0;
+  }
+  @include breakpoint(sm) {
+    padding: 80px 0 40px 0;
+  }
+  @include breakpoint(xs) {
+    padding: 40px 0 20px 0;
+  }
+  @media screen and (max-width: 500px) {
+    padding: 20px 0 10px 0;
+  }
   &-intro {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    @media screen and (max-width: 340px) {
+    flex-direction: column;
+    align-items: start;
+    gap: 10px;
+    }
   }
   &-arrows {
     display: flex;
     gap: 12px;
+    @include breakpoint(sm) {
+      gap: 4px;
+    }
     &__prev {
       display: flex;
       justify-content: center;
@@ -334,6 +355,10 @@ export default {
       height: 48px;
       border-radius: 50%;
       transition: 0.3s;
+      @media screen and (max-width: 400px) {
+        width: 35px;
+        height: 35px;
+      }
       cursor: pointer;
       &:hover {
         background-color: #ff3f3a;
@@ -350,6 +375,10 @@ export default {
       height: 48px;
       border-radius: 50%;
       transition: 0.5s;
+      @media screen and (max-width: 400px) {
+        width: 35px;
+        height: 35px;
+      }
       cursor: pointer;
       &:hover {
         background-color: #ff3f3a;
@@ -364,30 +393,75 @@ export default {
       line-height: 25px;
       font-weight: 700;
       letter-spacing: 1px;
+      @include breakpoint(sm) {
+        font-size: 14px;
+        line-height: 18px;
+        letter-spacing: 0.5px;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 12px;
+        line-height: 16px;
+        letter-spacing: normal;
+      }
     }
     &__title {
       font-size: 46px;
       line-height: 60px;
       font-weight: 900;
+      @include breakpoint(sm) {
+        font-size: 36px;
+        line-height: 50px;
+      }
+      @media screen and (max-width: 500px) {
+        font-size: 28px;
+        line-height: 38px;
+        font-weight: 800;
+      }
     }
   }
   .tutor {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    width: fit-content;
-    margin: 60px 0;
+    justify-content: center;
+    @include breakpoint(sm) {
+      gap: 10px;
+    }
     &-wrapper {
-      display: flex;
-      justify-content: space-evenly;
+      margin: 60px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 20px;
+      width: 100%;
+      @include breakpoint(xl) {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+      }
+      @include breakpoint(sm) {
+        margin: 30px 0;
+      }
+      @media screen and (max-width: 400px) {
+        margin: 5px 0;
+      }
     }
     &-img {
       display: flex;
       background-color: #ffcf2d;
-      width: fit-content;
+      justify-content: center;
       padding: 20px 20px 0 20px;
       transition: 0.5s;
       position: relative;
+
+      @include breakpoint(sm) {
+        padding-top: 10px;
+      }
+      img {
+        @include breakpoint(sm) {
+          width: 80%;
+        }
+      }
+
       &:hover {
         .tutor-img__shadow {
           opacity: 1;
@@ -430,10 +504,32 @@ export default {
         font-size: 20px;
         line-height: 30px;
         font-weight: 700;
+        @include breakpoint(sm) {
+          font-size: 18px;
+          line-height: 28px;
+        }
+        @media screen and (max-width: 500px) {
+          font-size: 16px;
+          line-height: 20px;
+        }
+        @media screen and (max-width: 400px) {
+          font-size: 14px;
+          line-height: 18px;
+        }
       }
       &__level {
         line-height: 25px;
         color: #787a80;
+        @include breakpoint(sm) {
+          font-size: 14px;
+          line-height: 18px;
+        }
+        @media screen and (max-width: 500px) {
+          font-size: 12px;
+        }
+        @media screen and (max-width: 400px) {
+          font-size: 10px;
+        }
       }
     }
   }

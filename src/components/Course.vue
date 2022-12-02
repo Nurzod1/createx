@@ -83,14 +83,15 @@ export default {
           text: "The Ultimate Google Ads Training Course",
           price: "$100",
           autor: "by Jerome Bell",
-          slug: 'design'
+          slug: "design",
         },
         {
           imgUrl: require("@/assets/img/card2.png"),
           category: "Management",
-          text: "Prduct Management Fundamentals",
+          text: "Product Management Fundamentals",
           price: "$480",
           autor: "by Marvin McKinney",
+          slug: "Management",
         },
         {
           imgUrl: require("@/assets/img/card3.png"),
@@ -98,6 +99,7 @@ export default {
           text: "HR  Management and Analytics",
           price: "$200",
           autor: "by Leslie Alexander Li",
+          slug: "HR & Recruting",
         },
         {
           imgUrl: require("@/assets/img/card4.png"),
@@ -105,6 +107,7 @@ export default {
           text: "Brand Management & PR Communications",
           price: "$530",
           autor: "by Kristin Watson",
+          slug: "Marketing",
         },
         {
           imgUrl: require("@/assets/img/card5.png"),
@@ -112,6 +115,7 @@ export default {
           text: "The Ultimate Google Ads Training Course",
           price: "4100",
           autor: "by Dianne Russell",
+          slug: "Management",
         },
         {
           imgUrl: require("@/assets/img/card6.png"),
@@ -119,6 +123,7 @@ export default {
           text: "Graphic Design Basic",
           price: "$500",
           autor: "by Guy Hawkins",
+          slug: "Design",
         },
         {
           imgUrl: require("@/assets/img/card7.png"),
@@ -126,6 +131,7 @@ export default {
           text: "Brand Management & PR Communications",
           price: "$530",
           autor: "by Kristin Watson",
+          slug: "Marketing",
         },
         {
           imgUrl: require("@/assets/img/card8.png"),
@@ -133,6 +139,7 @@ export default {
           text: "The Ultimate Google Ads Training Course",
           price: "4100",
           autor: "by Dianne Russell",
+          slug: "Management",
         },
         {
           imgUrl: require("@/assets/img/card9.png"),
@@ -140,6 +147,7 @@ export default {
           text: "Graphic Design Basic",
           price: "$500",
           autor: "by Guy Hawkins",
+          slug: "Design",
         },
       ],
     };
@@ -150,6 +158,12 @@ export default {
 <style lang="scss" scoped>
 .course {
   padding-top: 150px;
+  @include breakpoint(md) {
+    padding-top: 100px;
+  }
+  @include breakpoint(sm) {
+    padding-top: 60px;
+  }
   &-btn {
     display: flex;
     justify-content: center;
@@ -185,32 +199,65 @@ export default {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 30px;
+    margin: 20px 0;
+    @include breakpoint(sm) {
+      grid-template-columns: 1fr 1fr;
+    }
   }
   &-intro {
     display: flex;
     flex-direction: column;
     gap: 8px;
     align-items: center;
-
+    @include breakpoint(xs) {
+      gap: 0px;
+    }
     &__subtitle {
       line-height: 24px;
       font-weight: 700;
       text-transform: uppercase;
+      @include breakpoint(md) {
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @include breakpoint(xs) {
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
     &__title {
       font-size: 46px;
       line-height: 60px;
       font-weight: 900;
+      @include breakpoint(md) {
+        font-size: 38px;
+        line-height: 50px;
+      }
+      @include breakpoint(xs) {
+        font-size: 28px;
+        line-height: 40px;
+      }
     }
   }
   &-filter {
     display: flex;
     justify-content: space-evenly;
     align-items: center;
+    @include breakpoint(md) {
+      flex-direction: column;
+    }
     &__wrapper {
       display: flex;
       gap: 12px;
       padding: 15px 0;
+      @include breakpoint(sm) {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 12px;
+      }
+      @include breakpoint(xs){
+        gap: 5px;
+      }
     }
     &__btn {
       border: 2px solid transparent;
@@ -222,10 +269,27 @@ export default {
       padding: 8px 20px;
       transition: 0.3s;
       cursor: pointer;
+      @include breakpoint(sm) {
+        padding: 4px 10px;
+        font-weight: 600;
+      }
+      @include breakpoint(xs) {
+        padding: 2px 5px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+      @media screen and (max-width: 370px) {
+        line-height: 20px;
+        padding: 1px 5px;
+        font-size: 10px;
+      }
       &:hover {
         border: 2px solid #ff3f3a;
         border-radius: 4px;
         color: #ff3f3a;
+        @include breakpoint(sm) {
+          border: 1px solid #ff3f3a;
+        }
       }
     }
   }
@@ -239,6 +303,14 @@ export default {
       outline: none;
       padding: 12px;
       height: fit-content;
+      
+      @include breakpoint(md){
+        width: 300px;
+      }
+      @include breakpoint(xs) {
+        padding: 8px;
+        width: 200px;
+      }
     }
     button {
       display: flex;
@@ -250,6 +322,9 @@ export default {
       border-left: none;
       border-radius: 0px 4px 4px 0px;
       padding: 12px 8px 12px 12px;
+      @include breakpoint(xs) {
+        padding: 8px 14px 7px 8px;
+      }
       path {
         transition: 0.3s;
       }

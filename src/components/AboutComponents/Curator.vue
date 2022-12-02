@@ -128,42 +128,131 @@ export default {
     align-items: center;
     justify-content: center;
     gap: 135px;
+    @include breakpoint(lg){
+      gap: 80px;
+    }
+    @include breakpoint(sm){
+      gap: 30px;
+    }
+    @include breakpoint(xs){
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+  &-img{
+    img{
+      width: 100%;
+      height: 100%;
+      @include breakpoint(xs){
+        width: 60%;
+      }
+    }
   }
   &-about{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    @include breakpoint(md){
+      gap: 8px;
+    }
     &__subtitle{
       line-height: 24px;
       font-weight: 700;
       letter-spacing: 1px;
       text-transform: uppercase;
+      @include breakpoint(lg){
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @include breakpoint(md){
+        font-size: 12px;
+        line-height: 16px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 10px;
+        line-height: 12px;
+      }
     }
     &__title{
       font-size: 46px;
       line-height: 60px;
       font-weight: 900;
+      @include breakpoint(lg){
+        font-size: 40px;
+        line-height: 44px;
+      }
+      @include breakpoint(md){
+        font-size: 36px;
+        line-height: 40px;
+      }
+      @include breakpoint(sm){
+        font-size: 28px;
+        line-height: 32px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 24px;
+        line-height: 28px;
+      }
     }
     &__speciality{
       font-size: 20px;
       line-height: 30px;
       color: #787A80;
+      @include breakpoint(lg){
+        font-size: 18px;
+        line-height: 22px;
+      }
+      @include breakpoint(md){
+        font-size: 16px;
+        line-height: 20px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 14px;
+        line-height: 18px;
+      }
     }
     &__text{
       line-height: 26px;
       color: #424551;
       max-width: 600px;
+      @include breakpoint(lg){
+        line-height: 24px;
+      }
+      @include breakpoint(md){
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
     }
   }
   &-achievements{
     display: flex;
     flex-direction: column;
     gap: 4px;
+
+    @include breakpoint(sm){
+      flex-direction: row;
+    }
+    @include breakpoint(xs){
+      justify-content: center;
+    }
     &__rating{
       line-height: 25px;
       font-weight: 700;
       padding-left: 20px;
       position: relative;
+      
+      @include breakpoint(sm){
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
       &::before{
         content: url('@/assets/img/Star.svg');
         position: absolute;
@@ -176,6 +265,15 @@ export default {
       font-weight: 700;
       padding-left: 20px;
       position: relative;
+
+      @include breakpoint(sm){
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
       &::before{
         content: url('@/assets/img/Play1.svg');
         position: absolute;
@@ -188,6 +286,15 @@ export default {
       font-weight: 700;
       padding-left: 20px;
       position: relative;
+      
+      @include breakpoint(sm){
+        font-size: 14px;
+        line-height: 18px;
+      }
+      @media screen and (max-width: 400px) {
+        font-size: 12px;
+        line-height: 16px;
+      }
       &::before{
         content: url('@/assets/img/Profile1.svg');
         position: absolute;
@@ -199,7 +306,10 @@ export default {
   &-links{
     display: flex;
     gap: 24px;
-    padding-top: 20px;
+
+    @include breakpoint(xs){
+      justify-content: center;
+    }
     &__item{
       cursor: pointer;
       path{

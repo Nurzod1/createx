@@ -1,6 +1,5 @@
 <template>
   <div class="home">
-    <Navbar />
     <Header />
     <Why />
     <Feature />
@@ -22,7 +21,6 @@ import Certificate from '@/components/Certificate.vue'
 import Events from '@/components/Events.vue'
 import Feature from '@/components/Feature.vue'
 import Header from '@/components/Header.vue'
-import Navbar from '@/components/Navbar.vue'
 import Tutors from '@/components/Tutors.vue'
 import Why from '@/components/Why.vue'
 import Blog from '@/components/Blog.vue'
@@ -30,7 +28,7 @@ import Subfooter from '@/components/Subfooter.vue'
 import Footer from '@/components/Footer.vue'
 
 export default {
-  components: { Navbar, Header, Why, Feature, Benefits, Events, Certificate, Tutors ,Testimonials, Blog, Subfooter, Footer},
+  components: {Header, Why, Feature, Benefits, Events, Certificate, Tutors ,Testimonials, Blog, Subfooter, Footer},
   name: 'HomeView',
 }
 </script>
